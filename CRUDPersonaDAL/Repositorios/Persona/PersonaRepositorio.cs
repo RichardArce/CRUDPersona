@@ -27,7 +27,7 @@ namespace CRUDPersonaDAL.Repositorios.Persona
                 await _context.SaveChangesAsync();
             }*/
 
-            var existente = await _context.Personas.FindAsync(persona.Id);
+            var existente = await _context.Persona.FindAsync(persona.Id);
             if (existente == null) return null;
 
             _context.Entry(existente).CurrentValues.SetValues(persona);
@@ -41,7 +41,7 @@ namespace CRUDPersonaDAL.Repositorios.Persona
             //await _context.Personas.AddAsync(persona); // otra forma de guardar
             //await _context.SaveChangesAsync();
 
-            _context.Personas.Add(persona);
+            _context.Persona.Add(persona);
             await _context.SaveChangesAsync();
             return persona;
         }
@@ -54,22 +54,22 @@ namespace CRUDPersonaDAL.Repositorios.Persona
             //    _context.Personas.Remove(persona);
             //    await _context.SaveChangesAsync();
             //}
-            var persona = await _context.Personas.FindAsync(id);
+            var persona = await _context.Persona.FindAsync(id);
             if (persona == null) return false;
 
-            _context.Personas.Remove(persona);
+            _context.Persona.Remove(persona);
             await _context.SaveChangesAsync();
             return true;
         }
 
         public async Task<CRUDPersonaObjetos.Modelos.Persona> ObtenerPersonaPorIdAsync(int id)
         {
-            return await _context.Personas.FindAsync(id);
+            return await _context.Persona.FindAsync(id);
         }
 
         public async Task<List<CRUDPersonaObjetos.Modelos.Persona>> ObtenerPersonasAsync()
         {
-            return await _context.Personas.ToListAsync();
+            return await _context.Persona.ToListAsync();
         }
 
     }
