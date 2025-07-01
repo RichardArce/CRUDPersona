@@ -1,6 +1,8 @@
 using CRUDPersonaBLL.Servicios.Persona;
+using CRUDPersonaBLL.Servicios.Provincia;
 using CRUDPersonaDAL;
 using CRUDPersonaDAL.Repositorios.Persona;
+using CRUDPersonaDAL.Repositorios.Provincia;
 using CRUDPersonaObjetos;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,9 +18,11 @@ builder.Services.AddDbContext<ProyectoPersonaContext>(options =>
 
 //Inyeccion dependencia del repositorio
 builder.Services.AddScoped<IPersonaRepositorio, PersonaRepositorio>();
+builder.Services.AddScoped<IProvinciaRepositorio, ProvinciaRepository>();
 
 //Inyeccion dependencia del servicio
 builder.Services.AddScoped<IPersonaServicio, PersonaServicio>();
+builder.Services.AddScoped<IProvinciaServicio, ProvinciaServicio>();
 
 // Configurar AutoMapper
 builder.Services.AddAutoMapper(typeof(MapeoClases));

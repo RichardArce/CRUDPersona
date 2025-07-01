@@ -13,9 +13,17 @@ namespace CRUDPersonaObjetos
     {
         public MapeoClases()
         {
-            CreateMap<Persona, PersonaViewModelo>();
-            CreateMap<PersonaViewModelo, Persona>();
+            CreateMap<Persona, PersonaViewModelo>()
+                .ForMember(dest => dest.ProvinciaNombre, opt => opt.MapFrom(src => src.ProvinciaIdfkNavigation.Nombre));
+                
 
+            CreateMap<PersonaViewModelo, Persona>()
+                .ForMember(dest => dest.ProvinciaIdfkNavigation, opt => opt.Ignore()); // Ignorar el objeto de navegación
+                
+
+
+            CreateMap<Provincia, ProvinciaViewModelo>();
+            CreateMap<ProvinciaViewModelo, Provincia>();
 
         }
     }

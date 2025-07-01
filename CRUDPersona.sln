@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDPersona", "CRUDPersona\CRUDPersona.csproj", "{0ADC2CD4-D694-4095-93F6-1B2325BDE913}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDPersonaDAL", "CRUDPersonaDAL\CRUDPersonaDAL.csproj", "{205D1B3F-6789-4ACC-86F0-97E2843C394D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDPersonaObjetos", "CRUDPersonaObjetos\CRUDPersonaObjetos.csproj", "{4CEAC47D-0661-497A-AE4C-9029CF2F334A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDPersonaTEST", "CRUDPersonaTEST\CRUDPersonaTEST.csproj", "{75CE189E-E3A1-416E-BA19-1AA2D43191AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4CEAC47D-0661-497A-AE4C-9029CF2F334A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CEAC47D-0661-497A-AE4C-9029CF2F334A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CEAC47D-0661-497A-AE4C-9029CF2F334A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

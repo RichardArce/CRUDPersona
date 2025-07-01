@@ -29,6 +29,11 @@ public partial class ProyectoPersonaContext : DbContext
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
                 .IsFixedLength();
+            entity.Property(e => e.ProvinciaIdfk).HasColumnName("ProvinciaIDFK");
+
+            entity.HasOne(d => d.ProvinciaIdfkNavigation).WithMany(p => p.Persona)
+                .HasForeignKey(d => d.ProvinciaIdfk)
+                .HasConstraintName("FK_Persona_Provincia");
         });
 
         modelBuilder.Entity<Provincia>(entity =>

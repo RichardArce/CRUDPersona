@@ -14,4 +14,8 @@ public partial class Persona
     public int? Edad { get; set; }
 
     public DateTime? FechaRegistro { get; set; }
+
+    public int? ProvinciaIdfk { get; set; }
+
+    public virtual Provincia? ProvinciaIdfkNavigation { get; set; }
 }

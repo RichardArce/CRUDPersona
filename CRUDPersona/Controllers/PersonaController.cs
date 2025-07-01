@@ -9,16 +9,19 @@ using CRUDPersonaDAL;
 using CRUDPersonaObjetos.Modelos;
 using CRUDPersonaBLL.Servicios.Persona;
 using CRUDPersonaObjetos.ViewModelos;
+using CRUDPersonaBLL.Servicios.Provincia;
 
 namespace CRUDPersona.Controllers
 {
     public class PersonaController : Controller
     {
         private readonly IPersonaServicio _personaServicio;
+        private readonly IProvinciaServicio _provinciaServicio;
 
-        public PersonaController(IPersonaServicio personaServicio)
+        public PersonaController(IPersonaServicio personaServicio, IProvinciaServicio provinciaServicio)
         {
             _personaServicio = personaServicio;
+            _provinciaServicio = provinciaServicio;
         }
 
         // GET: Personas
@@ -36,8 +39,10 @@ namespace CRUDPersona.Controllers
         }
 
         // GET: Personas/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            // Aquí podrías cargar las provincias si es necesario
+            ViewBag.ProvinciaIdfk = new SelectList(await _provinciaServicio.ObtenerProvinciasAsync(),"Id","Nombre");    
             return View();
         }
 

@@ -69,7 +69,10 @@ namespace CRUDPersonaDAL.Repositorios.Persona
 
         public async Task<List<CRUDPersonaObjetos.Modelos.Persona>> ObtenerPersonasAsync()
         {
-            return await _context.Persona.ToListAsync();
+            return await _context.Persona
+                .Include(p => p.ProvinciaIdfkNavigation) // Incluye la relación con Provincia
+                .ToListAsync();
+
         }
 
     }
