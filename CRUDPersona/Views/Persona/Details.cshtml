@@ -1,32 +1,28 @@
-﻿@model CRUDPersonaObjetos.ViewModelos.PersonaViewModelo
-
-@{
+﻿@{
     ViewData["Title"] = "Details";
 }
-
 <h1>Details</h1>
-
 <div>
     <h4>Persona</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
+            Nombre
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
+            @Model.Nombre
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
+            Apellido
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
+            @Model.Apellido
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
+            Edad
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Edad)
+            @Model.Edad
         </dd>
 
     </dl>

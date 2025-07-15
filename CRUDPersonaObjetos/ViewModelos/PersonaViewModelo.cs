@@ -14,6 +14,8 @@ namespace CRUDPersonaObjetos.ViewModelos
 
         public string? ProvinciaNombre { get; set; } // Nombre de la provincia asociada para mostrar
 
-        //No debería tener objetos --solo debe mostrar la info, o funcionar como estructura de datos
+        //No debería tener objetos --solo debe mostrar la info, o funcionar como estructura de datos 
+        public List<MascotaViewModelo>? Mascotas { get; set; } = new List<MascotaViewModelo>();
+
     }
 }

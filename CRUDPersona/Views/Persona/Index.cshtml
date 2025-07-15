@@ -24,6 +24,9 @@
              <th>
                 @Html.DisplayNameFor(model => model.ProvinciaNombre)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mascotas)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -42,6 +45,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProvinciaNombre)
             </td>
+            <td>
+                    @foreach (var mascota in item.Mascotas)
+                    {
+                        @await Html.PartialAsync("../Mascotas/Details.cshtml", mascota) //DEBILIDAD, DESARROLLOS FRONT - END, JAVASCRIPT 
+                    }
+
+            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

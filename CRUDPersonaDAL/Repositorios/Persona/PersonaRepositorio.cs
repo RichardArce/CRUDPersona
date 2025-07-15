@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CRUDPersonaObjetos.Modelos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +12,12 @@ namespace CRUDPersonaDAL.Repositorios.Persona
     public class PersonaRepositorio : IPersonaRepositorio
     {
         private readonly ProyectoPersonaContext _context;
+        private readonly HttpClient _httpClient;
 
-        public PersonaRepositorio(ProyectoPersonaContext context)
+        public PersonaRepositorio(ProyectoPersonaContext context, HttpClient httpClient)
         {
             _context = context;
+            _httpClient = httpClient;
         }
         public async Task<CRUDPersonaObjetos.Modelos.Persona> ActualizarPersonaAsync(CRUDPersonaObjetos.Modelos.Persona persona)
         {
@@ -41,8 +45,16 @@ namespace CRUDPersonaDAL.Repositorios.Persona
             //await _context.Personas.AddAsync(persona); // otra forma de guardar
             //await _context.SaveChangesAsync();
 
-            _context.Persona.Add(persona);
-            await _context.SaveChangesAsync();
+            /* _context.Persona.Add(persona);
+                await _context.SaveChangesAsync();*/
+
+            //API
+            var response = await _httpClient.PostAsJsonAsync("/api/Persona", persona);
+
+            response.EnsureSuccessStatusCode(); // Lanza una excepción si la respuesta no es exitosa
+
+            var personaCreada = await response.Content.ReadFromJsonAsync<CRUDPersonaObjetos.Modelos.Persona>();
+
             return persona;
         }
 
@@ -54,12 +66,20 @@ namespace CRUDPersonaDAL.Repositorios.Persona
             //    _context.Personas.Remove(persona);
             //    await _context.SaveChangesAsync();
             //}
-            var persona = await _context.Persona.FindAsync(id);
+
+            /*var persona = await _context.Persona.FindAsync(id);
             if (persona == null) return false;
 
             _context.Persona.Remove(persona);
-            await _context.SaveChangesAsync();
-            return true;
+            await _context.SaveChangesAsync();*/
+
+            var response = await _httpClient.DeleteAsync($"/api/Persona/{id}"); //Eliminar no debe llevar un objeto, solo enviar el ID por URL
+
+            response.EnsureSuccessStatusCode(); // Lanza una excepción si la respuesta no es exitosa
+
+            var personaBorrada = await response.Content.ReadFromJsonAsync<bool>();
+
+            return personaBorrada;
         }
 
         public async Task<CRUDPersonaObjetos.Modelos.Persona> ObtenerPersonaPorIdAsync(int id)
@@ -69,9 +89,15 @@ namespace CRUDPersonaDAL.Repositorios.Persona
 
         public async Task<List<CRUDPersonaObjetos.Modelos.Persona>> ObtenerPersonasAsync()
         {
-            return await _context.Persona
+            /*return await _context.Persona
                 .Include(p => p.ProvinciaIdfkNavigation) // Incluye la relación con Provincia
-                .ToListAsync();
+                .ToListAsync();*/
+
+            //API
+            var listaPersonas = await _httpClient.GetFromJsonAsync<List<CRUDPersonaObjetos.Modelos.Persona>>("/api/Personas");
+
+
+            return listaPersonas;
 
         }
 

@@ -27,7 +27,31 @@ namespace CRUDPersona.Controllers
         // GET: Personas
         public async Task<IActionResult> Index()
         {
-            return View(await _personaServicio.ObtenerPersonasAsync());
+            var mascotas = new List<MascotaViewModelo>
+            {
+                new MascotaViewModelo
+                {
+                    Nombre = "Firulais",
+                    Tipo = "Perro"
+                },
+                new MascotaViewModelo
+                {
+                    Nombre = "Rambo",
+                    Tipo = "Gato"
+                }
+            };
+
+
+            var personas = await _personaServicio.ObtenerPersonasAsync();
+
+            foreach (var persona in personas)
+            {
+                // Asignar las mascotas a cada persona
+                persona.Mascotas = mascotas;
+            }
+
+
+            return View(personas);
         }
 
         // GET: Personas/Details/5

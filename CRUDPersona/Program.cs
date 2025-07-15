@@ -27,6 +27,12 @@ builder.Services.AddScoped<IProvinciaServicio, ProvinciaServicio>();
 // Configurar AutoMapper
 builder.Services.AddAutoMapper(typeof(MapeoClases));
 
+// Configurar HttpClient para el repositorio
+builder.Services.AddHttpClient<IPersonaRepositorio, PersonaRepositorio>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7035"); // URL base de la API
+});
+
 
 
 

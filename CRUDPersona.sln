@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDPersonaObjetos", "CRUDP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDPersonaTEST", "CRUDPersonaTEST\CRUDPersonaTEST.csproj", "{75CE189E-E3A1-416E-BA19-1AA2D43191AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_PRUEBA", "API_PRUEBA\API_PRUEBA.csproj", "{6570A6CA-8B09-4016-A562-9E45F9E024E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CE189E-E3A1-416E-BA19-1AA2D43191AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6570A6CA-8B09-4016-A562-9E45F9E024E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6570A6CA-8B09-4016-A562-9E45F9E024E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6570A6CA-8B09-4016-A562-9E45F9E024E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6570A6CA-8B09-4016-A562-9E45F9E024E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
